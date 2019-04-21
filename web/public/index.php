@@ -11,5 +11,7 @@ $foo = new App\Acme\Foo();
     </head>
     <body>
         <h1>Docker <?php echo $foo->getName(); ?></h1>
+        <p>HTTPS ready? <?php echo ($foo->isHttps() ? 'true' : 'false'); ?></p>
+        <p>Database ready? <?php echo ($foo->isDbConnect() ? 'true' : 'false'); ?></p>
     </body>
 </html>

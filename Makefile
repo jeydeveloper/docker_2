@@ -46,12 +46,12 @@ code-sniff:
 composer-up:
 	@docker run --rm -v $(shell pwd)/web/app:/app composer update
 
-docker-start: init
+docker-start: # init
 	docker-compose up -d
 
 docker-stop:
 	@docker-compose down -v
-	@make clean
+	# @make clean
 
 gen-certs:
 	@docker run --rm -v $(shell pwd)/etc/ssl:/certificates -e "SERVER=$(NGINX_HOST)" jacoelho/generate-certificate
