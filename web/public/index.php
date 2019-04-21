@@ -13,5 +13,6 @@ $foo = new App\Acme\Foo();
         <h1>Docker <?php echo $foo->getName(); ?></h1>
         <p>HTTPS ready? <?php echo ($foo->isHttps() ? 'true' : 'false'); ?></p>
         <p>Database ready? <?php echo ($foo->isDbConnect() ? 'true' : 'false'); ?></p>
+        <p>Redis ready? <?php echo ($foo->isRedisConnect() ? 'true' : $foo->getErrMsg()); ?></p>
     </body>
 </html>

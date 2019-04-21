@@ -17,6 +17,7 @@ services:
         depends_on:
             - php
             - mysqldb
+            - redis
     php:
         image: nanoninja/php-fpm:${PHP_VERSION}
         restart: always
@@ -54,3 +55,8 @@ services:
             - "8989:3306"
         volumes:
             - "./data/db/mysql:/var/lib/mysql"
+    redis:
+        image: redis:alpine
+        container_name: redis
+        ports:
+            - "63791:6379"

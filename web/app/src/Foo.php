@@ -34,4 +34,19 @@ class Foo
     public function getErrMsg() {
     	return $this->_errMsg;
     }
+
+    public function isRedisConnect() {
+    	$redis = new \Predis\Client([
+		    'scheme' => 'tcp',
+		    'host'   => '192.168.0.4',
+		    'port'   => 6379,
+		]);
+		try {
+		    $redis->connect();
+		} catch (\Exception $e) {
+		    $this->_errMsg = $e->getMessage();
+	        return false;
+		}
+		return true;
+    }
 }
